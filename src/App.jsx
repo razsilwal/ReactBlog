@@ -6,7 +6,7 @@ import Login from './pages/auth/Login'
 import AddBlog from './pages/blog/AddBlog'
 import Register from './pages/auth/Register'
 import EditBlog from './pages/blog/EditBlog'
-import SingleBlog from './SingleBlog'
+import SingleBlog from './pages/blog/SingleBlog'
 
 function App() {
 
