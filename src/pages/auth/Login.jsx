@@ -17,7 +17,7 @@ const Login = () => {
     const response = await axios.post(`${baseUrl}/token/`, payload)
     console.log(response)
     if(response.status === 200){
-      localStorage.setItem('token',response.data.access) 
+      localStorage.setItem('access', response.data.access) 
       localStorage.setItem('refresh', response.data.refresh)
 
       navigate('/')

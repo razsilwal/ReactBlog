@@ -1,8 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout/Layout'
 import Form from './components/form/Form'
-import axios from 'axios'
-import { baseUrl } from '../../config'
+import axiosInstance from '../../utils/axiosInstance'
 
 const AddBlog = () => {
   const handleCreateBlog = async(data)=>{
@@ -14,12 +13,7 @@ const AddBlog = () => {
   if (data.category) formData.append('category', data.category); // must be one of 'tech', 'life', etc.
 try {
 
-    const response = await axios.post(`${baseUrl}/posts/`, formData, {
-      headers : {
-        "Content-Type" : "multipart/form-data",
-        "Authorization" : `Bearer ${localStorage.getItem('token')}`
-      }
-    })
+    const response = await axiosInstance.post(`/posts/`, formData)
     console.log('Blog created: ', response.data)
   }catch(error){
     console.error('Error creating blog:', error.response.data)
